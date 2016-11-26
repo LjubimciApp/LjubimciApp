@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "279777480305",
+    "project_id": "ljubimciapp"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279777480305:android:895021335bc79329",
+        "android_client_info": {
+          "package_name": "com.grum_i_lendvaj.ljubimciapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "279777480305-r0dk3rnkl8unatpi0g76eijrtopa08ur.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.grum_i_lendvaj.ljubimciapp",
+            "certificate_hash": "F079181C0307A09A7CE2034035D454192EFE8999"
+          }
+        },
+        {
+          "client_id": "279777480305-7v3jc559ba5a9husucgo4pq82dp53u71.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGvW0GQpH03rNv-lkEMEowcOQdvTPZhq4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
