@@ -13,4 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
 
+    <TextView
+        android:text="Logiraj se preko google accounta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sign_in_message"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_marginBottom="115dp"
+        android:layout_above="@+id/sign_in_button"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
