@@ -22,7 +22,7 @@ import com.google.android.gms.common.api.ResultCallback;
 
 public class SignInActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
 
-    public static final int RC_SIGN_IN = 1;
+    private static final int RC_SIGN_IN = 1;
     private GoogleApiClient mGoogleApiClient;
 
     @Override
@@ -102,6 +102,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
             Intent intent = new Intent(getBaseContext(), MainActivity.class);
             intent.putExtra("account", acct);
             startActivity(intent);
+
         } else {
             // Signed out, show unauthenticated UI.
             // TODO NO-OP??
