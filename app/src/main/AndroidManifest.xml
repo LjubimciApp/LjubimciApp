@@ -25,8 +25,14 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:configChanges="orientation"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ExpensesActivity" />
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".PetActivity" />
+        <activity android:name=".PetDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -5,11 +5,12 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,4 +25,18 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(acct.getDisplayName());
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.button_list:
+
+                break;
+            case R.id.button_expenses:
+
+                break;
+            case R.id.button_calendar:
+
+                break;
+        }
+    }
 }

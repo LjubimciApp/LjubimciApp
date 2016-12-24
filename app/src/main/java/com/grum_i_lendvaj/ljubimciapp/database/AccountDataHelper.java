@@ -1,4 +1,4 @@
-package com.grum_i_lendvaj.ljubimciapp;
+package com.grum_i_lendvaj.ljubimciapp.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
