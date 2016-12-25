@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class AccountDataHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String ACCOUNT_TABLE_NAME = "dictionary";
+    private static final String ACCOUNT_TABLE_NAME = "pets";
     private static final String ACCOUNT_TABLE_CREATE =
             "CREATE TABLE " + ACCOUNT_TABLE_NAME + " (" +
                     "DUMMY" + " TEXT);";

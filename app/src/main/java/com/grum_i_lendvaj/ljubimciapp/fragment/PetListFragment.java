@@ -1,110 +1,102 @@
 package com.grum_i_lendvaj.ljubimciapp.fragment;
 
+import android.app.FragmentTransaction;
+import android.app.ListFragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
+import com.grum_i_lendvaj.ljubimciapp.PetDetailActivity;
 import com.grum_i_lendvaj.ljubimciapp.R;
-import com.grum_i_lendvaj.ljubimciapp.fragment.dummy.DummyContent;
-import com.grum_i_lendvaj.ljubimciapp.fragment.dummy.DummyContent.DummyItem;
+import com.grum_i_lendvaj.ljubimciapp.database.AccountDataHelper;
 
-import java.util.List;
+public class PetListFragment extends ListFragment {
 
-/**
- * A fragment representing a list of Items.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
- * interface.
- */
-public class PetListFragment extends Fragment {
+    AccountDataHelper helper;
 
-    // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
-    private OnListFragmentInteractionListener mListener;
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public PetListFragment() {
-    }
-
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static PetListFragment newInstance(int columnCount) {
-        PetListFragment fragment = new PetListFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private boolean dualPane;
+    private int currentPosition = -1;
+    private int currentIndex = -1;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
+        helper = new AccountDataHelper(getActivity());
+
+        View detailsFrame = getActivity().findViewById(R.id.detail_frame);
+        dualPane = detailsFrame != null && detailsFrame.getVisibility() == View.VISIBLE;
+
+        if (savedInstanceState != null) {
+            // Restore last state for checked position.
+            currentPosition = savedInstanceState.getInt("currentPosition", -1);
+            currentIndex = savedInstanceState.getInt("currentIndex", -1);
+        }
+
+        if (dualPane) {
+            // In dual-pane mode, the list view highlights the selected item.
+            getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+            // Make sure our UI is in the correct state.
+            if (currentIndex >= 0)
+                showDetails(currentPosition, currentIndex);
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_petlist_list, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_pet_list, container, false);
+    }
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        setListAdapter(new SimpleCursorAdapter(getActivity(), android.R.layout.simple_list_item_1,
+                helper.getReadableDatabase().query("pets", new String[]{"_id, name"}, null, null, null, null, null),
+                new String[]{}, new int[]{}, 0));
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("currentPosition", currentPosition);
+        outState.putInt("currentIndex", currentIndex);
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        showDetails(position, (int) id);
+    }
+
+    private void showDetails(int position, int index) {
+
+        currentPosition = position;
+        currentIndex = index;
+
+        if (dualPane) {
+            if (position >= 0)
+                getListView().setItemChecked(position, true);
+
+            PetDetailFragment details = (PetDetailFragment) getFragmentManager()
+                    .findFragmentById(R.id.detail_frame);
+            if (details == null || details.getShownIndex() != index) {
+                details = PetDetailFragment.newInstance((int) index);
+
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.detail_frame, details, "details");
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                ft.commit();
             }
-            recyclerView.setAdapter(new MyPetListRecyclerViewAdapter(DummyContent.ITEMS, mListener));
-        }
-        return view;
-    }
-
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
+            Intent intent = new Intent(getActivity(), PetDetailActivity.class);
+            intent.putExtra("index", index);
+            startActivity(intent);
         }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
     }
 }
