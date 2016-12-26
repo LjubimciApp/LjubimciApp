@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.grum_i_lendvaj.ljubimciapp.R;
 
+import java.util.Locale;
+
 public class PetDetailFragment extends Fragment {
 
     public static PetDetailFragment newInstance(int index) {
@@ -27,7 +29,7 @@ public class PetDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         TextView textView = (TextView) getActivity().findViewById(R.id.detailText);
-        textView.setText(Integer.toString(getShownIndex()));
+        textView.setText(String.format(Locale.getDefault(), "%d", getShownIndex()));
     }
 
     @Override
