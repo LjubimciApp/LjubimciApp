@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:name="com.grum_i_lendvaj.ljubimciapp.fragment.PetListFragment"
         android:id="@+id/fragment"
-        tools:layout="@layout/fragment_petlist_list"
+        tools:layout="@layout/fragment_pet_list"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

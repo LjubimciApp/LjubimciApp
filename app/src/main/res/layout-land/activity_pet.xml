@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.grum_i_lendvaj.ljubimciapp.PetActivity">
+
+    <fragment
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:name="com.grum_i_lendvaj.ljubimciapp.fragment.PetListFragment"
+        tools:layout="@layout/fragment_pet_list" />
+
+    <FrameLayout
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:id="@+id/detail_frame">
+
+    </FrameLayout>
+</LinearLayout>
