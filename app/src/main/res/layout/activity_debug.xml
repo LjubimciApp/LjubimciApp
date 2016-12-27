@@ -37,9 +37,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/button_query" />
 
-    <TextView
-        android:text="TextView"
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView_query" />
+        android:layout_height="match_parent"
+        android:id="@+id/listView_query" />
+
 </LinearLayout>

@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 
 import com.grum_i_lendvaj.ljubimciapp.database.AccountDataHelper;
 
@@ -33,8 +32,7 @@ public class DebugActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.button_query:
                 Cursor cursor = helper.getWritableDatabase().rawQuery(((EditText) findViewById(R.id.editText_query)).getText().toString(), null);
-                TextView textView = (TextView) findViewById(R.id.textView_query);
-                ListView x = null;
+                ListView x = (ListView) findViewById(R.id.listView_query);
                 x.setAdapter(new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, cursor, cursor.getColumnNames(), new int[] {android.R.id.text1, android.R.id.text2}));
                 break;
         }
