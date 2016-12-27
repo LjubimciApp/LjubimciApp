@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_calendar:
                 startActivity(new Intent(this, CalendarActivity.class));
                 break;
+            case R.id.button_debug:
+                startActivity(new Intent(this, DebugActivity.class));
+                break;
         }
     }
 }

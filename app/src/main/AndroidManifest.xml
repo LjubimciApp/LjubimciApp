@@ -32,7 +32,8 @@
         <activity android:name=".ExpensesActivity" />
         <activity android:name=".CalendarActivity" />
         <activity android:name=".PetActivity" />
-        <activity android:name=".PetDetailActivity"></activity>
+        <activity android:name=".PetDetailActivity" />
+        <activity android:name=".DebugActivity"></activity>
     </application>
 
 </manifest>
