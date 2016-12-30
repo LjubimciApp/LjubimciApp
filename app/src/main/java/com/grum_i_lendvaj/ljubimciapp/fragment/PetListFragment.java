@@ -2,23 +2,21 @@ package com.grum_i_lendvaj.ljubimciapp.fragment;
 
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 import com.grum_i_lendvaj.ljubimciapp.PetDetailActivity;
 import com.grum_i_lendvaj.ljubimciapp.R;
-import com.grum_i_lendvaj.ljubimciapp.database.AccountDataHelper;
+import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
 
 public class PetListFragment extends ListFragment {
 
-    AccountDataHelper helper;
+    PetDatabaseHelper helper;
 
     private boolean dualPane;
     private int currentPosition = -1;
@@ -28,7 +26,7 @@ public class PetListFragment extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        helper = new AccountDataHelper(getActivity());
+        helper = new PetDatabaseHelper(getActivity());
 
         View detailsFrame = getActivity().findViewById(R.id.detail_frame);
         dualPane = detailsFrame != null && detailsFrame.getVisibility() == View.VISIBLE;

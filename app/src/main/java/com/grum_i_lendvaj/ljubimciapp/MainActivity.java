@@ -5,9 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -18,10 +15,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
-        GoogleSignInAccount acct = getIntent().getParcelableExtra("account");
+//        GoogleSignInAccount acct = getIntent().getParcelableExtra("account");
 
-        TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setText(acct.getDisplayName());
+//        TextView textView = (TextView) findViewById(R.id.textView);
+//        textView.setText(acct.getDisplayName());
 
         Button buttonList = (Button) findViewById(R.id.button_list);
         buttonList.setOnClickListener(this);
@@ -31,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button buttonCalendar = (Button) findViewById(R.id.button_calendar);
         buttonCalendar.setOnClickListener(this);
+
+        Button buttonDebug = (Button) findViewById(R.id.button_debug);
+        buttonDebug.setOnClickListener(this);
 
     }
 
