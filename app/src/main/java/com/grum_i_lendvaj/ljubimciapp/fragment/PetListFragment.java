@@ -4,6 +4,7 @@ import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.SimpleCursorAdapter;
 import com.grum_i_lendvaj.ljubimciapp.PetDetailActivity;
 import com.grum_i_lendvaj.ljubimciapp.R;
 import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
+
+import java.util.Locale;
 
 public class PetListFragment extends ListFragment {
 
@@ -55,9 +58,9 @@ public class PetListFragment extends ListFragment {
     public void onResume() {
         super.onResume();
 
-        setListAdapter(new SimpleCursorAdapter(getActivity(), android.R.layout.simple_list_item_1,
+        setListAdapter(new SimpleCursorAdapter(getActivity(), android.R.layout.simple_list_item_2,
                 helper.getReadableDatabase().query("pets", new String[]{"_id, name"}, null, null, null, null, null),
-                new String[]{}, new int[]{}, 0));
+                new String[]{"_id", "name"}, new int[] {android.R.id.text1, android.R.id.text2}, 0));
     }
 
     @Override
@@ -69,6 +72,8 @@ public class PetListFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
+
+        Log.wtf("BITNO", String.format(Locale.getDefault(), "%d", id));
         showDetails(position, (int) id);
     }
 
@@ -76,6 +81,8 @@ public class PetListFragment extends ListFragment {
 
         currentPosition = position;
         currentIndex = index;
+
+        Log.wtf("BITNO", "...");
 
         if (dualPane) {
             if (position >= 0)
@@ -90,10 +97,14 @@ public class PetListFragment extends ListFragment {
                 ft.replace(R.id.detail_frame, details, "details");
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 ft.commit();
+
+                Log.wtf("BITNO", "???");
             }
         } else {
             Intent intent = new Intent(getActivity(), PetDetailActivity.class);
-            intent.putExtra("index", index);
+            intent.putExtra("com._grum_i_lendvaj.ljubimciapp.index", index);
+
+            Log.wtf("BITNO", "!!!");
             startActivity(intent);
         }
     }

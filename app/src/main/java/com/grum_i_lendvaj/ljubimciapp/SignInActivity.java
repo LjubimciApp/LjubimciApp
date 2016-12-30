@@ -1,6 +1,5 @@
 package com.grum_i_lendvaj.ljubimciapp;
 
-import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -100,7 +99,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
             Intent intent = new Intent(getBaseContext(), MainActivity.class);
-            intent.putExtra("account", acct);
+            intent.putExtra("com._grum_i_lendvaj.ljubimciapp.account", acct);
             startActivity(intent);
 
         } else {

@@ -36,7 +36,7 @@ public class DebugActivity extends AppCompatActivity implements View.OnClickList
                 ListView x = (ListView) findViewById(R.id.listView_query);
                 for (String str: cursor.getColumnNames())
                     Log.wtf("BITNA PORUKA", str);
-                x.setAdapter(new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, cursor, cursor.getColumnNames(), new int[] {android.R.id.text1, android.R.id.text2}));
+                x.setAdapter(new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, cursor, cursor.getColumnNames(), new int[] {android.R.id.text1, android.R.id.text2}, 0));
                 break;
         }
     }
