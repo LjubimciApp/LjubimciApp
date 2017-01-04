@@ -19,7 +19,7 @@ public class PetDetailFragment extends Fragment {
 
         // Supply index input as an argument.
         Bundle args = new Bundle();
-        args.putInt("com._grum_i_lendvaj.ljubimciapp.index", index);
+        args.putInt("index", index);
         f.setArguments(args);
 
         return f;
@@ -48,6 +48,6 @@ public class PetDetailFragment extends Fragment {
 
     public int getShownIndex() {
         Log.wtf("BITNO", "d");
-        return getArguments().getInt("com._grum_i_lendvaj.ljubimciapp.index", 0);
+        return getArguments().getInt("index", 0);
     }
 }

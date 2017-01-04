@@ -8,16 +8,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
+import com.grum_i_lendvaj.ljubimciapp.PetAddActivity;
 import com.grum_i_lendvaj.ljubimciapp.PetDetailActivity;
 import com.grum_i_lendvaj.ljubimciapp.R;
 import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
 
 import java.util.Locale;
 
-public class PetListFragment extends ListFragment {
+public class PetListFragment extends ListFragment implements View.OnClickListener {
 
     PetDatabaseHelper helper;
 
@@ -30,6 +32,9 @@ public class PetListFragment extends ListFragment {
         super.onActivityCreated(savedInstanceState);
 
         helper = new PetDatabaseHelper(getActivity());
+
+        Button buttonAdd = (Button) getActivity().findViewById(R.id.button_add);
+        buttonAdd.setOnClickListener(this);
 
         View detailsFrame = getActivity().findViewById(R.id.detail_frame);
         dualPane = detailsFrame != null && detailsFrame.getVisibility() == View.VISIBLE;
@@ -46,6 +51,15 @@ public class PetListFragment extends ListFragment {
             // Make sure our UI is in the correct state.
             if (currentIndex >= 0)
                 showDetails(currentPosition, currentIndex);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button_add:
+                startActivity(new Intent(getActivity(), PetAddActivity.class));
+                break;
         }
     }
 
@@ -102,7 +116,7 @@ public class PetListFragment extends ListFragment {
             }
         } else {
             Intent intent = new Intent(getActivity(), PetDetailActivity.class);
-            intent.putExtra("com._grum_i_lendvaj.ljubimciapp.index", index);
+            intent.putExtra("index", index);
 
             Log.wtf("BITNO", "!!!");
             startActivity(intent);
