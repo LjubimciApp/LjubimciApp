@@ -1,6 +1,7 @@
 package com.grum_i_lendvaj.ljubimciapp.fragment;
 
 import android.app.Fragment;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,8 +10,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.grum_i_lendvaj.ljubimciapp.R;
+import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
 
 public class PetDetailFragment extends Fragment {
+
+    static final String[] columns = {"name", "age", "foodInfo", "medicineInfo", "notes", "vet"};
+    static final int[] ids = {R.id.name, R.id.age, R.id.foodInfo, R.id.medicineInfo, R.id.notes, R.id.vet};
+    static final String query = "_id = ?";
+
+    PetDatabaseHelper helper;
 
     public static PetDetailFragment newInstance(int index) {
         PetDetailFragment f = new PetDetailFragment();
@@ -29,12 +37,27 @@ public class PetDetailFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        helper = new PetDatabaseHelper(getActivity());
+
         Log.wtf("BITNO", "a" + getShownIndex());
 
-        TextView textView = (TextView) getActivity().findViewById(R.id.detailText);
-        Log.wtf("BITNO", String.valueOf(textView));
-        textView.setText("test index " + getShownIndex());
-        Log.wtf("BITNO", "aa" + getShownIndex());
+        Cursor cursor = helper.getReadableDatabase().query(
+                "pets", columns,
+                query, new String[]{Integer.toString(getShownIndex())},
+                null, null, null);
+
+        cursor.moveToFirst();
+        for (int i = 0; i < cursor.getColumnCount(); ++i) switch (cursor.getType(i)) {
+            case Cursor.FIELD_TYPE_STRING:
+                ((TextView) getActivity().findViewById(ids[i])).setText(cursor.getString(i));
+                break;
+            case Cursor.FIELD_TYPE_INTEGER:
+                ((TextView) getActivity().findViewById(ids[i])).setText(Integer.toString(cursor.getInt(i)));
+                break;
+            default:
+                Log.wtf("AJOJ", "za " + i + " " + cursor.getType(i));
+                assert false;
+        }
     }
 
     @Override
@@ -47,7 +70,6 @@ public class PetDetailFragment extends Fragment {
     }
 
     public int getShownIndex() {
-        Log.wtf("BITNO", "d");
         return getArguments().getInt("index", 0);
     }
 }

@@ -1,12 +1,43 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.grum_i_lendvaj.ljubimciapp.fragment.PetDetailFragment">
+    tools:context="com.grum_i_lendvaj.ljubimciapp.fragment.PetDetailFragment"
+    android:orientation="vertical">
 
     <TextView
+        android:text="TextView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/detailText"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/name" />
 
-</FrameLayout>
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/age" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/foodInfo" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/medicineInfo" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/notes" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vet" />
+</LinearLayout>

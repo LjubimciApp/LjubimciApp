@@ -45,7 +45,7 @@
     </LinearLayout>
 
     <TextView
-        android:text="TextView"
+        android:text="BOK!!!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"

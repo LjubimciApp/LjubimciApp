@@ -22,7 +22,7 @@ public class PetAddFragment extends Fragment implements View.OnClickListener {
 
         helper = new PetDatabaseHelper(getActivity());
 
-        Button buttonSubmit = (Button) getActivity().findViewById(R.id.button_submit);
+        Button buttonSubmit = (Button) getActivity().findViewById(R.id.submit);
         buttonSubmit.setOnClickListener(this);
     }
 
@@ -35,9 +35,15 @@ public class PetAddFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button_submit:
+            case R.id.submit:
                 ContentValues vals = new ContentValues();
-                vals.put("name", ((EditText) getActivity().findViewById(R.id.editText)).getText().toString());
+                vals.put("name", ((EditText) getActivity().findViewById(R.id.name)).getText().toString());
+                vals.put("age", Integer.parseInt(((EditText) getActivity().findViewById(R.id.age)).getText().toString()));
+                vals.put("foodInfo", ((EditText) getActivity().findViewById(R.id.foodInfo)).getText().toString());
+                vals.put("medicineInfo", ((EditText) getActivity().findViewById(R.id.medicineInfo)).getText().toString());
+                vals.put("notes", ((EditText) getActivity().findViewById(R.id.notes)).getText().toString());
+                vals.put("vet", ((EditText) getActivity().findViewById(R.id.vet)).getText().toString());
+
                 helper.getWritableDatabase().insert("pets", null, vals);
                 getActivity().finish();
                 break;
