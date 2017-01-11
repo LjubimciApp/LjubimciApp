@@ -4,10 +4,15 @@
     android:layout_height="match_parent">
 
     <Button
-        android:text="Dodaj"
+        android:text="Dodaj ljubimca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_add" />
+        android:id="@+id/button_add"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:elevation="0dp"
+        android:background="@color/colorAccent"
+        android:fontFamily="casual"
+        android:textSize="24sp" />
 
     <ListView
         android:layout_width="match_parent"

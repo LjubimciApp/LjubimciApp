@@ -1,9 +1,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.grum_i_lendvaj.ljubimciapp.fragment.PetAddFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    app:layout_collapseParallaxMultiplier="1.0">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -11,7 +13,12 @@
         android:text="Ime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
+        android:id="@+id/textView1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal|bold|italic"
+        android:textSize="22sp"
+        android:fontFamily="serif" />
 
     <EditText
         android:layout_width="match_parent"
@@ -24,7 +31,12 @@
         android:text="Dob"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
+        android:id="@+id/textView2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal|bold|italic"
+        android:textSize="22sp"
+        android:fontFamily="serif" />
 
     <EditText
         android:layout_width="match_parent"
@@ -37,20 +49,32 @@
         android:text="Hrana"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3" />
+        android:id="@+id/textView3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal|bold|italic"
+        android:textSize="22sp"
+        android:fontFamily="serif" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/foodInfo" />
+        android:id="@+id/foodInfo"
+        android:textStyle="normal|bold" />
 
     <TextView
         android:text="Lijekovi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4" />
+        android:id="@+id/textView4"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal|bold|italic"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        android:fontFamily="serif" />
 
     <EditText
         android:layout_width="match_parent"
@@ -63,7 +87,12 @@
         android:text="Bilješke"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView5" />
+        android:id="@+id/textView5"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="normal|bold|italic"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:fontFamily="serif" />
 
     <EditText
         android:layout_width="match_parent"
@@ -76,7 +105,12 @@
         android:text="Veterinar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView6" />
+        android:id="@+id/textView6"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="normal|bold|italic"
+        android:textColor="@color/colorAccent"
+        android:fontFamily="serif"
+        android:textSize="22sp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -86,8 +120,12 @@
         android:id="@+id/vet" />
 
     <Button
-        android:text="OKOKOKOK"
+        android:text="Potvrdi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/submit" />
+        android:id="@+id/submit"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:background="@color/colorAccent"
+        android:fontFamily="casual"
+        android:textSize="16sp" />
 </LinearLayout>

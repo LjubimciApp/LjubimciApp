@@ -21,37 +21,61 @@
         <Button
             android:text="Ljubimci"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button_list" />
+            android:id="@+id/button_list"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_height="60sp"
+            android:fontFamily="casual"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
 
         <Button
             android:text="Troškovi"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button_expenses" />
+            android:layout_height="60dp"
+            android:id="@+id/button_expenses"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:fontFamily="casual"
+            android:textStyle="normal|italic" />
 
         <Button
             android:text="Kalendar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button_calendar" />
+            android:layout_height="60dp"
+            android:id="@+id/button_calendar"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:backgroundTint="@color/colorPrimary"
+            android:textSize="24sp"
+            android:fontFamily="casual"
+            android:textStyle="normal|italic" />
 
         <Button
             android:text="Debug"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button_debug" />
+            android:layout_height="60dp"
+            android:id="@+id/button_debug"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:fontFamily="casual"
+            android:textStyle="normal|italic" />
 
     </LinearLayout>
 
     <TextView
-        android:text="BOK!!!"
+        android:text="Pozdravljaju te tvoji ljubimci!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="38dp"
+        android:textStyle="normal|bold|italic"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:fontFamily="serif" />
 
 </RelativeLayout>
