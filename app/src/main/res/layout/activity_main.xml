@@ -27,7 +27,7 @@
             android:layout_height="60sp"
             android:fontFamily="casual"
             android:textSize="24sp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|italic" />
 
         <Button
             android:text="Troškovi"
