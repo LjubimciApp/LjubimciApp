@@ -102,7 +102,7 @@
         android:id="@+id/medicineInfo" />
 
     <TextView
-        android:text="Bilješke"
+        android:text="Zdravlje"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView6"
@@ -117,10 +117,10 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/notes" />
+        android:id="@+id/helthInfo" />
 
     <TextView
-        android:text="Zdravlje"
+        android:text="Bilješke"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView7"
@@ -135,7 +135,7 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/helthInfo" />
+        android:id="@+id/notes" />
 
     <TextView
         android:text="Veterinar"

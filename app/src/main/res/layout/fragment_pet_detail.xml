@@ -25,7 +25,17 @@
         android:textSize="24sp"
         android:fontFamily="serif"
         android:textColor="@color/colorAccent"
-        tools:text="Moje godine:" />
+        tools:text="Dob" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mass"
+        android:textSize="24sp"
+        android:fontFamily="serif"
+        android:textColor="@color/colorAccent"
+        tools:text="Masa" />
 
     <TextView
         android:text="TextView"
@@ -35,7 +45,7 @@
         android:textSize="18sp"
         android:fontFamily="serif"
         android:textColor="@color/colorAccent"
-        tools:text="Jedem: " />
+        tools:text="Hrana" />
 
     <TextView
         android:text="TextView"
@@ -45,7 +55,17 @@
         android:textSize="18sp"
         android:fontFamily="serif"
         android:textColor="@color/colorAccent"
-        tools:text="Moje zdravlje: " />
+        tools:text="Lijekovi" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/helthInfo"
+        android:textSize="18sp"
+        android:fontFamily="serif"
+        android:textColor="@color/colorAccent"
+        tools:text="Zdravlje" />
 
     <TextView
         android:text="TextView"
@@ -55,7 +75,7 @@
         android:textSize="18sp"
         android:fontFamily="serif"
         android:textColor="@color/colorAccent"
-        tools:text="Bilješka:" />
+        tools:text="Bilješke" />
 
     <TextView
         android:text="TextView"
@@ -65,5 +85,16 @@
         android:textSize="18sp"
         android:fontFamily="serif"
         android:textColor="@color/colorAccent"
-        tools:text="Moj veterinar je:" />
+        tools:text="Veterinar" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/owner"
+        android:textSize="18sp"
+        android:fontFamily="serif"
+        android:textColor="@color/colorAccent"
+        tools:text="Vlasnik/skrbnik" />
+
 </LinearLayout>
