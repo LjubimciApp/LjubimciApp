@@ -9,35 +9,61 @@
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/name" />
+        android:id="@+id/name"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:fontFamily="serif"
+        android:textStyle="normal|italic"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent" />
 
     <TextView
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/age" />
+        android:id="@+id/age"
+        android:textSize="24sp"
+        android:fontFamily="serif"
+        android:textColor="@color/colorAccent"
+        tools:text="Moje godine:" />
 
     <TextView
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/foodInfo" />
+        android:id="@+id/foodInfo"
+        android:textSize="18sp"
+        android:fontFamily="serif"
+        android:textColor="@color/colorAccent"
+        tools:text="Jedem: " />
 
     <TextView
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/medicineInfo" />
+        android:id="@+id/medicineInfo"
+        android:textSize="18sp"
+        android:fontFamily="serif"
+        android:textColor="@color/colorAccent"
+        tools:text="Moje zdravlje: " />
 
     <TextView
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/notes" />
+        android:id="@+id/notes"
+        android:textSize="18sp"
+        android:fontFamily="serif"
+        android:textColor="@color/colorAccent"
+        tools:text="Bilješka:" />
 
     <TextView
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/vet" />
+        android:id="@+id/vet"
+        android:textSize="18sp"
+        android:fontFamily="serif"
+        android:textColor="@color/colorAccent"
+        tools:text="Moj veterinar je:" />
 </LinearLayout>

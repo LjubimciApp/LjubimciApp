@@ -46,10 +46,28 @@
         android:id="@+id/age" />
 
     <TextView
-        android:text="Hrana"
+        android:text="Masa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal|bold|italic"
+        android:textSize="22sp"
+        android:fontFamily="serif" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/mass" />
+
+    <TextView
+        android:text="Hrana"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textColor="@color/colorAccent"
         android:textStyle="normal|bold|italic"
@@ -68,7 +86,7 @@
         android:text="Lijekovi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4"
+        android:id="@+id/textView5"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textColor="@color/colorAccent"
         android:textStyle="normal|bold|italic"
@@ -87,7 +105,7 @@
         android:text="Bilješke"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView5"
+        android:id="@+id/textView6"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textStyle="normal|bold|italic"
         android:textColor="@color/colorAccent"
@@ -102,10 +120,28 @@
         android:id="@+id/notes" />
 
     <TextView
+        android:text="Zdravlje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="normal|bold|italic"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:fontFamily="serif" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/helthInfo" />
+
+    <TextView
         android:text="Veterinar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView6"
+        android:id="@+id/textView8"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textStyle="normal|bold|italic"
         android:textColor="@color/colorAccent"
@@ -118,6 +154,24 @@
         android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/vet" />
+
+    <TextView
+        android:text="Vlasnik/skrbitelj"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView9"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="normal|bold|italic"
+        android:textColor="@color/colorAccent"
+        android:fontFamily="serif"
+        android:textSize="22sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/owner" />
 
     <Button
         android:text="Potvrdi"
