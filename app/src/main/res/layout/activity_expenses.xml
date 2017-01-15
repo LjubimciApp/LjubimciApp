@@ -11,11 +11,63 @@
     tools:context="com.grum_i_lendvaj.ljubimciapp.ExpensesActivity">
 
     <TextView
-        android:text="Troškovi? Nema Troškova!"
+        android:text="Veterinarski troškovi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal|bold|italic"
+        android:textSize="22sp"
+        android:fontFamily="serif" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/vetExpenses"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/textView1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Troškovi hrane"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal|bold|italic"
+        android:textSize="22sp"
+        android:fontFamily="serif"
+        android:layout_below="@+id/vetExpenses"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/foodExpenses"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Potvrdi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+        android:id="@+id/submit"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:background="@color/colorAccent"
+        android:fontFamily="casual"
+        android:textSize="16sp"
+        android:layout_below="@+id/foodExpenses"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
