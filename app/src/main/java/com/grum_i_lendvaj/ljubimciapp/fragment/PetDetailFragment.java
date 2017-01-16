@@ -14,8 +14,8 @@ import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
 
 public class PetDetailFragment extends Fragment {
 
-    static final String[] columns = {"name", "age", "foodInfo", "medicineInfo", "notes", "vet"};
-    static final int[] ids = {R.id.name, R.id.age, R.id.foodInfo, R.id.medicineInfo, R.id.notes, R.id.vet};
+    static final String[] columns = {"name", "age", "weight", "food", "medicine", "health", "notes", "vet", "owner"};
+    static final int[] ids = {R.id.name, R.id.age, R.id.weight, R.id.food, R.id.medicine, R.id.health, R.id.notes, R.id.vet, R.id.owner};
     static final String query = "_id = ?";
 
     PetDatabaseHelper helper;

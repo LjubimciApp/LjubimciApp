@@ -1,100 +1,106 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.grum_i_lendvaj.ljubimciapp.fragment.PetDetailFragment"
-    android:orientation="vertical">
+    tools:context="com.grum_i_lendvaj.ljubimciapp.fragment.PetDetailFragment">
 
-    <TextView
-        android:text="TextView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/name"
-        android:textSize="30sp"
-        android:textAlignment="center"
-        android:fontFamily="serif"
-        android:textStyle="normal|italic"
-        android:textAllCaps="true"
-        android:textColor="@color/colorAccent" />
+        android:orientation="vertical">
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/age"
-        android:textSize="24sp"
-        android:fontFamily="serif"
-        android:textColor="@color/colorAccent"
-        tools:text="Dob" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:fontFamily="serif"
+            android:textStyle="normal|italic"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/mass"
-        android:textSize="18sp"
-        android:fontFamily="serif"
-        android:textColor="@color/colorAccent"
-        tools:text="Masa" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/age"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorAccent"
+            tools:text="Dob" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/foodInfo"
-        android:textSize="18sp"
-        android:fontFamily="serif"
-        android:textColor="@color/colorAccent"
-        tools:text="Hrana" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/weight"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorAccent"
+            tools:text="Težina" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/medicineInfo"
-        android:textSize="18sp"
-        android:fontFamily="serif"
-        android:textColor="@color/colorAccent"
-        tools:text="Lijekovi" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/food"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorAccent"
+            tools:text="Hrana" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/helthInfo"
-        android:textSize="18sp"
-        android:fontFamily="serif"
-        android:textColor="@color/colorAccent"
-        tools:text="Zdravlje" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/medicine"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorAccent"
+            tools:text="Lijekovi" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/notes"
-        android:textSize="18sp"
-        android:fontFamily="serif"
-        android:textColor="@color/colorAccent"
-        tools:text="Bilješke" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/health"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorAccent"
+            tools:text="Zdravlje" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/vet"
-        android:textSize="18sp"
-        android:fontFamily="serif"
-        android:textColor="@color/colorAccent"
-        tools:text="Veterinar" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/notes"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorAccent"
+            tools:text="Bilješke" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/owner"
-        android:textSize="18sp"
-        android:fontFamily="serif"
-        android:textColor="@color/colorAccent"
-        tools:text="Vlasnik/skrbnik" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/vet"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorAccent"
+            tools:text="Veterinar" />
 
-</LinearLayout>
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/owner"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorAccent"
+            tools:text="Vlasnik/skrbnik" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -37,16 +37,27 @@ public class PetAddFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.submit:
                 ContentValues vals = new ContentValues();
-                vals.put("name", ((EditText) getActivity().findViewById(R.id.name)).getText().toString());
-                vals.put("age", Integer.parseInt(((EditText) getActivity().findViewById(R.id.age)).getText().toString()));
-                vals.put("foodInfo", ((EditText) getActivity().findViewById(R.id.foodInfo)).getText().toString());
-                vals.put("medicineInfo", ((EditText) getActivity().findViewById(R.id.medicineInfo)).getText().toString());
-                vals.put("notes", ((EditText) getActivity().findViewById(R.id.notes)).getText().toString());
-                vals.put("vet", ((EditText) getActivity().findViewById(R.id.vet)).getText().toString());
+                vals.put("name",        getStringField(R.id.name));
+                vals.put("age",         getIntField(R.id.age));
+                vals.put("weight",      getIntField(R.id.weight));
+                vals.put("food",        getStringField(R.id.food));
+                vals.put("medicine",    getStringField(R.id.medicine));
+                vals.put("health",      getStringField(R.id.health));
+                vals.put("notes",       getStringField(R.id.notes));
+                vals.put("vet",         getStringField(R.id.vet));
+                vals.put("owner",         getStringField(R.id.owner));
 
                 helper.getWritableDatabase().insert("pets", null, vals);
                 getActivity().finish();
                 break;
         }
+    }
+    
+    private String getStringField(int id) {
+        return ((EditText) getActivity().findViewById(id)).getText().toString();
+    }
+    
+    private int getIntField(int id) {
+        return Integer.parseInt(getStringField(id));
     }
 }
