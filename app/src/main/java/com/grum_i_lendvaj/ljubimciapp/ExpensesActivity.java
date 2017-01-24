@@ -8,7 +8,7 @@ import com.grum_i_lendvaj.ljubimciapp.database.ExpensesDatabaseHelper;
 
 public class ExpensesActivity extends ListActivity {
 
-    private static final String[] columns = {"name", "vet", "etc"};
+    private static final String[] columns = {"name", "vet", "_id"};
     private static final int[] ids = {R.id.name, R.id.vet, R.id.etc};
 
     ExpensesDatabaseHelper helper;
