@@ -79,8 +79,7 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/foodInfo"
-        android:textStyle="normal|bold" />
+        android:id="@+id/foodInfo" />
 
     <TextView
         android:text="Lijekovi"
@@ -181,6 +180,7 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:background="@color/colorAccent"
         android:fontFamily="casual"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@color/colorButtonText" />
 
 </LinearLayout>
