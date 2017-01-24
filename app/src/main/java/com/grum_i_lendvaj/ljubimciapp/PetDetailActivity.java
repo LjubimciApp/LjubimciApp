@@ -12,9 +12,9 @@ import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
 
 public class PetDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
-    static final String[] columns = {"name", "age", "weight", "food", "medicine", "health", "notes", "vet", "owner"};
-    static final int[] ids = {R.id.name, R.id.age, R.id.weight, R.id.food, R.id.medicine, R.id.health, R.id.notes, R.id.vet, R.id.owner};
-    static final String query = "_id = ?";
+    private static final String[] columns = {"name", "age", "weight", "food", "medicine", "health", "notes", "vet", "owner"};
+    private static final int[] ids = {R.id.name, R.id.age, R.id.weight, R.id.food, R.id.medicine, R.id.health, R.id.notes, R.id.vet, R.id.owner};
+    private static final String query = "_id = ?";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +71,6 @@ public class PetDetailActivity extends AppCompatActivity implements View.OnClick
                 vals.put("notes",       getStringField(R.id.notes));
                 vals.put("vet",         getStringField(R.id.vet));
                 vals.put("owner",       getStringField(R.id.owner));
-                Log.wtf("abc", "daj daj daj");
 
                 helper.getWritableDatabase().update("pets", vals, query, new String[]{Integer.toString(getShownIndex())});
                 finish();

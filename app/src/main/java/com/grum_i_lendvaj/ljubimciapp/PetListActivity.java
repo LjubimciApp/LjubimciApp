@@ -27,7 +27,7 @@ public class PetListActivity extends ListActivity implements View.OnClickListene
 
         helper = new PetDatabaseHelper(this);
 
-        Button buttonAdd = (Button) findViewById(R.id.button_add);
+        Button buttonAdd = (Button) findViewById(R.id.add);
         buttonAdd.setOnClickListener(this);
 
         if (savedInstanceState != null) {
@@ -40,7 +40,7 @@ public class PetListActivity extends ListActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button_add:
+            case R.id.add:
                 startActivity(new Intent(this, PetAddActivity.class));
                 break;
         }

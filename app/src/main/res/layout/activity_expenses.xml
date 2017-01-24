@@ -13,6 +13,17 @@
     tools:context="com.grum_i_lendvaj.ljubimciapp.ExpensesActivity"
     android:weightSum="1">
 
+    <Button
+        android:text="Dodaj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:background="@color/colorAccent"
+        android:fontFamily="casual"
+        android:textSize="16sp"
+        android:textColor="@color/colorButtonText" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -24,16 +35,5 @@
             android:id="@android:id/list" />
 
     </ScrollView>
-
-    <Button
-        android:text="Potvrdi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/submit"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:background="@color/colorAccent"
-        android:fontFamily="casual"
-        android:textSize="16sp"
-        android:textColor="@color/colorButtonText" />
 
 </LinearLayout>
