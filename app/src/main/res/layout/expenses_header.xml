@@ -9,26 +9,40 @@
         android:layout_height="wrap_content"
         android:id="@+id/name"
         android:layout_weight="1"
-        android:textSize="14sp" />
+        android:textSize="22sp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal|bold|italic"
+        android:fontFamily="serif" />
 
     <TextView
         android:text="Veterinar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/vet"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textSize="22sp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal|bold|italic"
+        android:fontFamily="serif" />
 
     <TextView
         android:text="Hrana"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/foodExpenses"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textSize="22sp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal|bold|italic"
+        android:fontFamily="serif" />
 
     <TextView
         android:text="Ostalo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etc"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textSize="22sp"
+        android:fontFamily="serif"
+        android:textStyle="normal|bold|italic" />
 </LinearLayout>
