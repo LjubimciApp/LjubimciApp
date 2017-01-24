@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.grum_i_lendvaj.ljubimciapp.fragment.PetAddFragment"
+    tools:context="com.grum_i_lendvaj.ljubimciapp.PetAddActivity"
     app:layout_collapseParallaxMultiplier="1.0">
 
     <LinearLayout
@@ -82,8 +82,7 @@
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:ems="10"
-            android:id="@+id/food"
-            android:textStyle="normal|bold" />
+            android:id="@+id/food" />
 
         <TextView
             android:text="Lijekovi"
@@ -183,6 +182,7 @@
             android:id="@+id/submit"
             style="@style/Widget.AppCompat.Button.Colored"
             android:background="@color/colorAccent"
-            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button" />
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button"
+            android:textColor="@color/colorButtonText" />
     </LinearLayout>
 </ScrollView>
