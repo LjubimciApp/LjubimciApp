@@ -32,6 +32,7 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:background="@color/colorAccent"
         android:fontFamily="casual"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@color/colorButtonText" />
 
 </LinearLayout>
