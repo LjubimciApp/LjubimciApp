@@ -1,6 +1,5 @@
 package com.grum_i_lendvaj.ljubimciapp.fragment;
 
-import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,7 +22,6 @@ public class PetListFragment extends ListFragment implements View.OnClickListene
 
     PetDatabaseHelper helper;
 
-    private boolean dualPane;
     private int currentPosition = -1;
     private int currentIndex = -1;
 
@@ -37,20 +35,11 @@ public class PetListFragment extends ListFragment implements View.OnClickListene
         buttonAdd.setOnClickListener(this);
 
         View detailsFrame = getActivity().findViewById(R.id.detail_frame);
-        dualPane = detailsFrame != null && detailsFrame.getVisibility() == View.VISIBLE;
 
         if (savedInstanceState != null) {
             // Restore last state for checked position.
             currentPosition = savedInstanceState.getInt("currentPosition", -1);
             currentIndex = savedInstanceState.getInt("currentIndex", -1);
-        }
-
-        if (dualPane) {
-            // In dual-pane mode, the list view highlights the selected item.
-            getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-            // Make sure our UI is in the correct state.
-            if (currentIndex >= 0)
-                showDetails(currentPosition, currentIndex);
         }
     }
 
@@ -98,28 +87,10 @@ public class PetListFragment extends ListFragment implements View.OnClickListene
 
         Log.wtf("BITNO", "...");
 
-        if (dualPane) {
-            if (position >= 0)
-                getListView().setItemChecked(position, true);
+        Intent intent = new Intent(getActivity(), PetDetailActivity.class);
+        intent.putExtra("index", index);
 
-            PetDetailFragment details = (PetDetailFragment) getFragmentManager()
-                    .findFragmentById(R.id.detail_frame);
-            if (details == null || details.getShownIndex() != index) {
-                details = PetDetailFragment.newInstance((int) index);
-
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.detail_frame, details, "details");
-                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                ft.commit();
-
-                Log.wtf("BITNO", "???");
-            }
-        } else {
-            Intent intent = new Intent(getActivity(), PetDetailActivity.class);
-            intent.putExtra("index", index);
-
-            Log.wtf("BITNO", "!!!");
-            startActivity(intent);
-        }
+        Log.wtf("BITNO", "!!!");
+        startActivity(intent);
     }
 }
