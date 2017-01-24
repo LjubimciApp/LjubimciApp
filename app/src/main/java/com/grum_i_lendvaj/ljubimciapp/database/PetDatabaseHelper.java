@@ -6,17 +6,20 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class PetDatabaseHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
     private static final String PET_TABLE_NAME = "pets";
     private static final String PET_TABLE_CREATE =
             "CREATE TABLE " + PET_TABLE_NAME + " ("
                     + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "name TEXT NOT NULL, "
                     + "age INTEGER, "
-                    + "foodInfo TEXT, "
-                    + "medicineInfo TEXT, "
+                    + "weight INTEGER, "
+                    + "food TEXT, "
+                    + "medicine TEXT, "
+                    + "health TEXT, "
                     + "notes TEXT, "
-                    + "vet TEXT"
+                    + "vet TEXT, "
+                    + "owner TEXT"
                     + ")";
     private static final String PET_TABLE_DROP =
             "DROP TABLE IF EXISTS " + PET_TABLE_NAME;
