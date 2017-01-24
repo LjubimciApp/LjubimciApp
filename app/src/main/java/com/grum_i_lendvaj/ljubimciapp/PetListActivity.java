@@ -1,24 +1,19 @@
-package com.grum_i_lendvaj.ljubimciapp.fragment;
+package com.grum_i_lendvaj.ljubimciapp;
 
-import android.app.ListFragment;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-import com.grum_i_lendvaj.ljubimciapp.PetAddActivity;
-import com.grum_i_lendvaj.ljubimciapp.PetDetailActivity;
-import com.grum_i_lendvaj.ljubimciapp.R;
 import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
 
 import java.util.Locale;
 
-public class PetListFragment extends ListFragment implements View.OnClickListener {
+public class PetListActivity extends ListActivity implements View.OnClickListener {
 
     PetDatabaseHelper helper;
 
@@ -26,15 +21,14 @@ public class PetListFragment extends ListFragment implements View.OnClickListene
     private int currentIndex = -1;
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pet_list);
 
-        helper = new PetDatabaseHelper(getActivity());
+        helper = new PetDatabaseHelper(this);
 
-        Button buttonAdd = (Button) getActivity().findViewById(R.id.button_add);
+        Button buttonAdd = (Button) findViewById(R.id.button_add);
         buttonAdd.setOnClickListener(this);
-
-        View detailsFrame = getActivity().findViewById(R.id.detail_frame);
 
         if (savedInstanceState != null) {
             // Restore last state for checked position.
@@ -47,21 +41,16 @@ public class PetListFragment extends ListFragment implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_add:
-                startActivity(new Intent(getActivity(), PetAddActivity.class));
+                startActivity(new Intent(this, PetAddActivity.class));
                 break;
         }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_pet_list, container, false);
     }
 
     @Override
     public void onResume() {
         super.onResume();
 
-        setListAdapter(new SimpleCursorAdapter(getActivity(), android.R.layout.simple_list_item_2,
+        setListAdapter(new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2,
                 helper.getReadableDatabase().query("pets", new String[]{"_id, name"}, null, null, null, null, null),
                 new String[]{"_id", "name"}, new int[] {android.R.id.text1, android.R.id.text2}, 0));
     }
@@ -85,12 +74,9 @@ public class PetListFragment extends ListFragment implements View.OnClickListene
         currentPosition = position;
         currentIndex = index;
 
-        Log.wtf("BITNO", "...");
-
-        Intent intent = new Intent(getActivity(), PetDetailActivity.class);
+        Intent intent = new Intent(this, PetDetailActivity.class);
         intent.putExtra("index", index);
 
-        Log.wtf("BITNO", "!!!");
         startActivity(intent);
     }
 }

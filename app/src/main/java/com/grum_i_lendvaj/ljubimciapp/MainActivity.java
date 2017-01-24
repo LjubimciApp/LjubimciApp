@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_list:
-                startActivity(new Intent(this, PetActivity.class));
+                startActivity(new Intent(this, PetListActivity.class));
                 break;
             case R.id.button_expenses:
                 startActivity(new Intent(this, ExpensesActivity.class));

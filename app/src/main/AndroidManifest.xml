@@ -43,7 +43,7 @@
         <activity android:name=".CalendarActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-        <activity android:name=".PetActivity"
+        <activity android:name=".PetListActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity android:name=".PetDetailActivity"
