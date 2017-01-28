@@ -8,26 +8,22 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
+import com.grum_i_lendvaj.ljubimciapp.database.ExpensesDatabaseHelper;
 
-public class PetDetailActivity extends AppCompatActivity implements View.OnClickListener {
+public class ExpenseActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String[] columns = {"name", "age", "weight", "food", "medicine", "health", "notes", "vet", "owner"};
-    private static final int[] ids = {R.id.name, R.id.age, R.id.weight, R.id.food, R.id.medicine, R.id.health, R.id.notes, R.id.vet, R.id.owner};
+    private static final String[] columns = {"name", "vet", "etc"};
+    private static final int[] ids = {R.id.name, R.id.vet, R.id.etc};
     private static final String query = "_id = ?";
 
-    PetDatabaseHelper helper;
+    ExpensesDatabaseHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pet_detail);
+        setContentView(R.layout.activity_expense);
 
-        helper = new PetDatabaseHelper(this);
-
-        Log.wtf("BITNO", "a" + getShownIndex());
-
-        findViewById(R.id.submit).setOnClickListener(this);
+        helper = new ExpensesDatabaseHelper(this);
     }
 
     @Override
@@ -69,20 +65,14 @@ public class PetDetailActivity extends AppCompatActivity implements View.OnClick
             case R.id.submit:
                 ContentValues vals = new ContentValues();
                 vals.put("name",        getStringField(R.id.name));
-                vals.put("age",         getIntField(R.id.age));
-                vals.put("weight",      getIntField(R.id.weight));
-                vals.put("food",        getStringField(R.id.food));
-                vals.put("medicine",    getStringField(R.id.medicine));
-                vals.put("health",      getStringField(R.id.health));
-                vals.put("notes",       getStringField(R.id.notes));
                 vals.put("vet",         getStringField(R.id.vet));
-                vals.put("owner",       getStringField(R.id.owner));
+                vals.put("etc",       getStringField(R.id.etc));
 
-                helper.getWritableDatabase().update("pets", vals, query, new String[]{String.valueOf(getShownIndex())});
+                helper.getWritableDatabase().update("expenses", vals, query, new String[]{String.valueOf(getShownIndex())});
                 finish();
                 break;
             case R.id.delete:
-                helper.getWritableDatabase().delete("pets", query, new String[]{String.valueOf(getShownIndex())});
+                helper.getWritableDatabase().delete("expenses", query, new String[]{String.valueOf(getShownIndex())});
                 finish();
                 break;
         }

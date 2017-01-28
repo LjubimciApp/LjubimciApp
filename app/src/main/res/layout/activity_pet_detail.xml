@@ -182,6 +182,15 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:background="@color/colorAccent"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button" />
+
+        <Button
+            android:text="OBRIŠI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/delete"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button"
+            android:background="@android:color/holo_red_dark" />
     </LinearLayout>
 
 </ScrollView>

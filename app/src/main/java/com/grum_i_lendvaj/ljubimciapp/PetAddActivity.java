@@ -26,6 +26,12 @@ public class PetAddActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        helper.close();
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.submit:

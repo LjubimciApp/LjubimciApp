@@ -14,21 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SignInActivity"
-            android:label="@string/title_activity_signin">
-
-            <!--
-                <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity
             android:name=".MainActivity"
             android:configChanges="orientation"
-            android:label="@string/title_activity_main"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,22 +27,27 @@
             android:name=".ExpensesActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-        <activity android:name=".CalendarActivity"
+        <activity
+            android:name=".CalendarActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-        <activity android:name=".PetListActivity"
+        <activity
+            android:name=".PetListActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-        <activity android:name=".PetDetailActivity"
+        <activity
+            android:name=".PetDetailActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-        <activity android:name=".DebugActivity"
+        <activity
+            android:name=".DebugActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
             android:name=".PetAddActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".ExpenseActivity"></activity>
     </application>
 
 </manifest>

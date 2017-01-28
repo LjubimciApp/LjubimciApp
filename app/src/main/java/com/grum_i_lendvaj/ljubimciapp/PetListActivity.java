@@ -18,7 +18,7 @@ public class PetListActivity extends ListActivity implements View.OnClickListene
     PetDatabaseHelper helper;
 
     private int currentPosition = -1;
-    private int currentIndex = -1;
+    private long currentIndex = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class PetListActivity extends ListActivity implements View.OnClickListene
         if (savedInstanceState != null) {
             // Restore last state for checked position.
             currentPosition = savedInstanceState.getInt("currentPosition", -1);
-            currentIndex = savedInstanceState.getInt("currentIndex", -1);
+            currentIndex = savedInstanceState.getLong("currentIndex", -1);
         }
     }
 
@@ -51,25 +51,31 @@ public class PetListActivity extends ListActivity implements View.OnClickListene
         super.onResume();
 
         setListAdapter(new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2,
-                helper.getReadableDatabase().query("pets", new String[]{"_id, name"}, null, null, null, null, null),
+                helper.getWritableDatabase().query("pets", new String[]{"_id, name"}, null, null, null, null, null),
                 new String[]{"_id", "name"}, new int[] {android.R.id.text1, android.R.id.text2}, 0));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        helper.close();
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("currentPosition", currentPosition);
-        outState.putInt("currentIndex", currentIndex);
+        outState.putLong("currentIndex", currentIndex);
     }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
 
         Log.wtf("BITNO", String.format(Locale.getDefault(), "%d", id));
-        showDetails(position, (int) id);
+        showDetails(position, id);
     }
 
-    private void showDetails(int position, int index) {
+    private void showDetails(int position, long index) {
 
         currentPosition = position;
         currentIndex = index;

@@ -1,9 +1,12 @@
 package com.grum_i_lendvaj.ljubimciapp;
 
 import android.app.ListActivity;
+import android.content.ContentValues;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -13,9 +16,6 @@ public class ExpensesActivity extends ListActivity implements View.OnClickListen
 
     private static final String[] columns = {"_id", "name", "vet", "etc"};
     private static final int[] ids = {R.id._id, R.id.name, R.id.vet, R.id.etc};
-    private static final String query = "_id = ?";
-
-    private long selected = -1;
 
     ExpensesDatabaseHelper helper;
 
@@ -23,44 +23,61 @@ public class ExpensesActivity extends ListActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expenses);
+
+        findViewById(R.id.add).setOnClickListener(this);
+
         getListView().addHeaderView(getLayoutInflater().inflate(R.layout.expenses_header, null));
         helper = new ExpensesDatabaseHelper(this);
-        findViewById(R.id.add).setOnClickListener(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        getListView().setAdapter(new SimpleCursorAdapter(
+        setListAdapter(new SimpleCursorAdapter(
                 this,
                 R.layout.expenses_item,
-                helper.getReadableDatabase().query("expenses", columns, null, null, null, null, null),
+                helper.getWritableDatabase().query("expenses", columns, null, null, null, null, null),
                 columns, ids,
                 0));
     }
 
-
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.add:
-                break;
-        }
+    protected void onDestroy() {
+        super.onDestroy();
+        helper.close();
     }
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        selected = id;
+        showDetails(position, id);
     }
 
-    private String getStringField(View view, int id) {
-        return ((EditText) view.findViewById(id)).getText().toString();
+    private void showDetails(int position, long index) {
+
+        Intent intent = new Intent(this, ExpenseActivity.class);
+        intent.putExtra("index", index);
+
+        startActivity(intent);
     }
 
-    private int getIntField(View view, int id) {
-        return Integer.parseInt(getStringField(view, id));
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.add:
+                ContentValues vals = new ContentValues();
+                vals.put("name", "blank");
+                vals.put("vet", "");
+                vals.put("etc", "");
+                helper.getWritableDatabase().insert("expenses", null, vals);
+
+                ((CursorAdapter) getListAdapter()).changeCursor(
+                        helper.getWritableDatabase().query("expenses", columns, null, null, null, null, null));
+
+                Log.wtf("cursor", String.valueOf(((CursorAdapter) getListAdapter()).getCursor().getCount()));
+                break;
+        }
     }
 }

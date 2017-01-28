@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_expense"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.grum_i_lendvaj.ljubimciapp.ExpenseActivity">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:textSize="14sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vet"
+        android:textSize="14sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etc"
+        android:textSize="14sp" />
+
+    <Button
+        android:text="@string/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submit"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:background="@color/colorAccent"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button" />
+
+    <Button
+        android:text="OBRIŠI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/delete"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button"
+        android:background="@android:color/holo_red_dark" />
+
+</LinearLayout>

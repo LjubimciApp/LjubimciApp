@@ -6,13 +6,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class ExpensesDatabaseHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
     private static final String TABLE_NAME = "expenses";
     private static final String
             TABLE_CREATE =
             "CREATE TABLE " + TABLE_NAME + " ("
                     + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + "name TEXT NOT NULL, "
+                    + "name TEXT, "
                     + "vet TEXT, "
                     + "etc TEXT"
                     + ")";
