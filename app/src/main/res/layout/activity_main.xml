@@ -28,7 +28,7 @@
             android:layout_height="60sp"
             android:fontFamily="casual"
             android:textSize="24sp"
-            android:textStyle="normal|italic"
+            android:textStyle="normal|bold|italic"
             android:textColor="@color/colorButtonText" />
 
         <Button
@@ -40,7 +40,7 @@
             android:backgroundTint="@color/colorPrimaryDark"
             android:textSize="24sp"
             android:fontFamily="casual"
-            android:textStyle="normal|italic"
+            android:textStyle="normal|bold|italic"
             android:textColor="@color/colorButtonText" />
 
         <Button
@@ -52,7 +52,7 @@
             android:backgroundTint="@color/colorPrimary"
             android:textSize="24sp"
             android:fontFamily="casual"
-            android:textStyle="normal|italic"
+            android:textStyle="normal|bold|italic"
             android:textColor="@color/colorButtonText" />
 
         <Button
@@ -64,7 +64,7 @@
             android:backgroundTint="@color/colorPrimaryDark"
             android:textSize="24sp"
             android:fontFamily="casual"
-            android:textStyle="normal|italic"
+            android:textStyle="normal|bold|italic"
             android:textColor="@color/colorButtonText" />
 
     </LinearLayout>

@@ -15,19 +15,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/name"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:fontFamily="sans-serif" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/vet"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:fontFamily="sans-serif" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etc"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:fontFamily="sans-serif" />
 
     <Button
         android:text="@string/submit"
@@ -36,7 +39,10 @@
         android:id="@+id/submit"
         style="@style/Widget.AppCompat.Button.Colored"
         android:background="@color/colorAccent"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button" />
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button"
+        android:textColor="@color/colorButtonText"
+        android:textStyle="normal|bold"
+        android:fontFamily="casual" />
 
     <Button
         android:text="OBRIŠI"
@@ -45,6 +51,9 @@
         android:id="@+id/delete"
         style="@style/Widget.AppCompat.Button.Colored"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button"
-        android:background="@android:color/holo_red_dark" />
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@color/colorButtonText"
+        android:textStyle="normal|bold"
+        android:fontFamily="casual" />
 
 </LinearLayout>

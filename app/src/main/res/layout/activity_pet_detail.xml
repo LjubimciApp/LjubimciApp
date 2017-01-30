@@ -80,8 +80,7 @@
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:ems="10"
-            android:id="@+id/food"
-            android:textStyle="normal|bold" />
+            android:id="@+id/food" />
 
         <TextView
             android:text="Lijekovi"
@@ -181,7 +180,10 @@
             android:id="@+id/submit"
             style="@style/Widget.AppCompat.Button.Colored"
             android:background="@color/colorAccent"
-            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button" />
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button"
+            android:fontFamily="casual"
+            android:textStyle="normal|bold"
+            android:textColor="@color/colorButtonText" />
 
         <Button
             android:text="OBRIŠI"
@@ -190,7 +192,11 @@
             android:id="@+id/delete"
             style="@style/Widget.AppCompat.Button.Colored"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button"
-            android:background="@android:color/holo_red_dark" />
+            android:background="@android:color/holo_red_dark"
+            android:fontFamily="casual"
+            android:textColor="@color/colorButtonText"
+            android:textSize="14sp"
+            android:textStyle="normal|bold" />
     </LinearLayout>
 
 </ScrollView>
