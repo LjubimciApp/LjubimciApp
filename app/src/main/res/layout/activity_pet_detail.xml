@@ -80,8 +80,7 @@
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:ems="10"
-            android:id="@+id/food"
-            android:textStyle="normal|bold" />
+            android:id="@+id/food" />
 
         <TextView
             android:text="Lijekovi"
