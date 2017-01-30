@@ -24,6 +24,9 @@ public class ExpenseActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_expense);
 
         helper = new ExpensesDatabaseHelper(this);
+
+        findViewById(R.id.submit).setOnClickListener(this);
+        findViewById(R.id.delete).setOnClickListener(this);
     }
 
     @Override
@@ -31,7 +34,7 @@ public class ExpenseActivity extends AppCompatActivity implements View.OnClickLi
         super.onResume();
 
         Cursor cursor = helper.getWritableDatabase().query(
-                "pets", columns,
+                "expenses", columns,
                 query, new String[]{String.valueOf(getShownIndex())},
                 null, null, null);
 

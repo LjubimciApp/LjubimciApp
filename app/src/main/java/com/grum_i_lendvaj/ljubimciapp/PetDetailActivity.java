@@ -28,6 +28,7 @@ public class PetDetailActivity extends AppCompatActivity implements View.OnClick
         Log.wtf("BITNO", "a" + getShownIndex());
 
         findViewById(R.id.submit).setOnClickListener(this);
+        findViewById(R.id.delete).setOnClickListener(this);
     }
 
     @Override
