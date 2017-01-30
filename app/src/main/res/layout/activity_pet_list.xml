@@ -20,7 +20,8 @@
         android:elevation="0dp"
         android:background="@color/colorAccent"
         android:fontFamily="casual"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="normal|bold" />
 
     <ListView
         android:layout_width="match_parent"
