@@ -19,9 +19,9 @@
             android:id="@+id/textView1"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textColor="@color/colorAccent"
-            android:textStyle="normal|bold|italic"
             android:textSize="22sp"
-            android:fontFamily="serif" />
+            android:fontFamily="serif"
+            android:textStyle="normal|bold|italic" />
 
         <EditText
             android:layout_width="match_parent"
