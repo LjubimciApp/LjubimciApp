@@ -1,11 +1,13 @@
 package com.grum_i_lendvaj.ljubimciapp;
 
 import android.app.ListActivity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -15,10 +17,9 @@ import java.util.Locale;
 
 public class PetListActivity extends ListActivity implements View.OnClickListener {
 
-    PetDatabaseHelper helper;
+    static final String[] columns = {"name", "age", "weight", "food", "medicine", "health", "notes", "vet", "owner", "_id"};
 
-    private int currentPosition = -1;
-    private long currentIndex = -1;
+    PetDatabaseHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +30,28 @@ public class PetListActivity extends ListActivity implements View.OnClickListene
 
         Button buttonAdd = (Button) findViewById(R.id.add);
         buttonAdd.setOnClickListener(this);
-
-        if (savedInstanceState != null) {
-            // Restore last state for checked position.
-            currentPosition = savedInstanceState.getInt("currentPosition", -1);
-            currentIndex = savedInstanceState.getLong("currentIndex", -1);
-        }
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.add:
-                startActivity(new Intent(this, PetAddActivity.class));
+                ContentValues vals = new ContentValues();
+                vals.put("name", "test");
+                vals.put("age", 0);
+                vals.put("weight", 0);
+                vals.put("food", "");
+                vals.put("medicine", "");
+                vals.put("health", "");
+                vals.put("notes", "");
+                vals.put("vet", "");
+                vals.put("owner", "");
+                long id = helper.getWritableDatabase().insert("pets", null, vals);
+
+                ((CursorAdapter) getListAdapter()).changeCursor(
+                        helper.getWritableDatabase().query("pets", columns, null, null, null, null, null));
+
+                showDetails(id);
                 break;
         }
     }
@@ -62,23 +72,12 @@ public class PetListActivity extends ListActivity implements View.OnClickListene
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt("currentPosition", currentPosition);
-        outState.putLong("currentIndex", currentIndex);
-    }
-
-    @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-
         Log.wtf("BITNO", String.format(Locale.getDefault(), "%d", id));
-        showDetails(position, id);
+        showDetails(id);
     }
 
-    private void showDetails(int position, long index) {
-
-        currentPosition = position;
-        currentIndex = index;
+    private void showDetails(long index) {
 
         Intent intent = new Intent(this, PetDetailActivity.class);
         intent.putExtra("index", index);

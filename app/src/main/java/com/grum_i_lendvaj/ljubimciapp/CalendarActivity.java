@@ -56,15 +56,6 @@ public class CalendarActivity extends ListActivity implements View.OnClickListen
                 ((CursorAdapter) getListAdapter()).changeCursor(
                         helper.getWritableDatabase().query("events", columns, null, null, null, null, null));
 
-//                Notification notification = new NotificationCompat.Builder(this)
-//                        .setSmallIcon(android.R.drawable.sym_def_app_icon)
-//                        .setContentTitle("Notifikacija!")
-//                        .setContentText("Jej!")
-//                        .build();
-//                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-//
-//                notificationManager.notify((int) id, notification);
-
                 AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
                 Intent intent = new Intent(this, EventReceiver.class).putExtra("id", (int) id);
 
