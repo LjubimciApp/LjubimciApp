@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
 
@@ -67,17 +68,23 @@ public class PetDetailActivity extends AppCompatActivity implements View.OnClick
         switch (v.getId()) {
             case R.id.submit:
                 ContentValues vals = new ContentValues();
-                vals.put("name",        getStringField(R.id.name));
-                vals.put("age",         getIntField(R.id.age));
-                vals.put("weight",      getIntField(R.id.weight));
-                vals.put("food",        getStringField(R.id.food));
-                vals.put("medicine",    getStringField(R.id.medicine));
-                vals.put("health",      getStringField(R.id.health));
-                vals.put("notes",       getStringField(R.id.notes));
-                vals.put("vet",         getStringField(R.id.vet));
-                vals.put("owner",       getStringField(R.id.owner));
 
-                helper.getWritableDatabase().update("pets", vals, query, new String[]{String.valueOf(getShownIndex())});
+                try {
+                    vals.put("name", getStringField(R.id.name));
+                    vals.put("age", getIntField(R.id.age));
+                    vals.put("weight", getIntField(R.id.weight));
+                    vals.put("food", getStringField(R.id.food));
+                    vals.put("medicine", getStringField(R.id.medicine));
+                    vals.put("health", getStringField(R.id.health));
+                    vals.put("notes", getStringField(R.id.notes));
+                    vals.put("vet", getStringField(R.id.vet));
+                    vals.put("owner", getStringField(R.id.owner));
+
+                    helper.getWritableDatabase().update("pets", vals, query, new String[]{String.valueOf(getShownIndex())});
+                } catch (IllegalArgumentException e) {
+                    Toast.makeText(this, R.string.illegal, Toast.LENGTH_LONG).show();
+                    break;
+                }
                 finish();
                 break;
             case R.id.delete:

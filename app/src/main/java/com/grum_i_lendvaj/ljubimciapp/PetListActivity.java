@@ -41,7 +41,7 @@ public class PetListActivity extends ListActivity implements View.OnClickListene
         switch (v.getId()) {
             case R.id.add:
                 ContentValues vals = new ContentValues();
-                vals.put("name", "test");
+                vals.put("name", "");
                 vals.put("age", 0);
                 vals.put("weight", 0);
                 vals.put("food", "");

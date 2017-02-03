@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Moji ljubimci</string>
     <string name="submit">Potvrdi</string>
+    <string name="illegal">Loše formatirana polja. Molimo provjerite unesene podatke.</string>
 </resources>
