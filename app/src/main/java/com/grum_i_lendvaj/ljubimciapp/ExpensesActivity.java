@@ -52,10 +52,10 @@ public class ExpensesActivity extends ListActivity implements View.OnClickListen
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        showDetails(position, id);
+        showDetails(id);
     }
 
-    private void showDetails(int position, long index) {
+    private void showDetails(long index) {
 
         Intent intent = new Intent(this, ExpenseActivity.class);
         intent.putExtra("index", index);
@@ -71,10 +71,12 @@ public class ExpensesActivity extends ListActivity implements View.OnClickListen
                 vals.put("name", "");
                 vals.put("vet", "");
                 vals.put("etc", "");
-                helper.getWritableDatabase().insert("expenses", null, vals);
+                long id = helper.getWritableDatabase().insert("expenses", null, vals);
 
                 ((CursorAdapter) getListAdapter()).changeCursor(
                         helper.getWritableDatabase().query("expenses", columns, null, null, null, null, null));
+
+                showDetails(id);
 
                 Log.wtf("cursor", String.valueOf(((CursorAdapter) getListAdapter()).getCursor().getCount()));
                 break;
