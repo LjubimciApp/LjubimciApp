@@ -38,10 +38,6 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DebugActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ExpenseActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
@@ -49,9 +45,9 @@
         <receiver
             android:name=".EventReceiver"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="false" />
 
-        <activity android:name=".EventActivity"></activity>
+        <activity android:name=".EventActivity" />
     </application>
 
 </manifest>

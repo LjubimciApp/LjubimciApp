@@ -1,12 +1,20 @@
 package com.grum_i_lendvaj.ljubimciapp;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
 
 import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
+
+import java.util.Calendar;
 
 public class EventActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,31 +31,32 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
 
         helper = new PetDatabaseHelper(this);
 
-//        findViewById(R.id.submit).setOnClickListener(this);
-//        findViewById(R.id.delete).setOnClickListener(this);
+        findViewById(R.id.submit).setOnClickListener(this);
+        findViewById(R.id.delete).setOnClickListener(this);
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     protected void onResume() {
         super.onResume();
 
-//        Cursor cursor = helper.getWritableDatabase().query(
-//                "events", columns,
-//                query, new String[]{String.valueOf(getShownIndex())},
-//                null, null, null);
-//
-//        cursor.moveToFirst();
-//        for (int i = 0; i < cursor.getColumnCount(); ++i) switch (cursor.getType(i)) {
-//            case Cursor.FIELD_TYPE_STRING:
-//                ((EditText) findViewById(ids[i])).setText(cursor.getString(i));
-//                break;
-//            case Cursor.FIELD_TYPE_INTEGER:
-//                ((EditText) findViewById(ids[i])).setText(Integer.toString(cursor.getInt(i)));
-//                break;
-//            default:
-//                Log.wtf("AJOJ", "za " + i + " " + cursor.getType(i));
-//                assert false;
-//        }
+        Cursor cursor = helper.getWritableDatabase().query(
+                "events", columns,
+                query, new String[]{String.valueOf(getShownIndex())},
+                null, null, null);
+
+        cursor.moveToFirst();
+
+        long millis = 1000L * cursor.getInt(0);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(millis);
+
+        DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
+        TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+
+        datePicker.updateDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        timePicker.setCurrentHour(calendar.get(Calendar.HOUR_OF_DAY));
+        timePicker.setCurrentMinute(calendar.get(Calendar.MINUTE));
     }
 
     @Override
@@ -61,14 +70,30 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.submit:
                 ContentValues vals = new ContentValues();
-                vals.put("time", getStringField(R.id.time));
-                vals.put("description", getIntField(R.id.description));
+
+                Calendar calendar = Calendar.getInstance();
+
+                DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
+                TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+
+                calendar.set(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(),
+                        timePicker.getCurrentHour(), timePicker.getCurrentMinute(), 0);
+
+                vals.put("time", (int) (calendar.getTime().getTime() / 1000));
+                vals.put("description", getStringField(R.id.description));
 
                 helper.getWritableDatabase().update("events", vals, query, new String[]{String.valueOf(getShownIndex())});
+
+                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                Intent intent = new Intent(this, EventReceiver.class).putExtra("id", (int) getShownIndex());
+
+                alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                        PendingIntent.getBroadcast(this, 0, intent, 0));
                 finish();
                 break;
             case R.id.delete:

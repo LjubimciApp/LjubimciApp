@@ -12,13 +12,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
-//        GoogleSignInAccount acct = getIntent().getParcelableExtra("account");
-
-//        TextView textView = (TextView) findViewById(R.id.textView);
-//        textView.setText(acct.getDisplayName());
 
         Button buttonList = (Button) findViewById(R.id.button_list);
         buttonList.setOnClickListener(this);
@@ -28,9 +21,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button buttonCalendar = (Button) findViewById(R.id.button_calendar);
         buttonCalendar.setOnClickListener(this);
-
-        Button buttonDebug = (Button) findViewById(R.id.button_debug);
-        buttonDebug.setOnClickListener(this);
     }
 
     @Override
@@ -44,9 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_calendar:
                 startActivity(new Intent(this, CalendarActivity.class));
-                break;
-            case R.id.button_debug:
-                startActivity(new Intent(this, DebugActivity.class));
                 break;
         }
     }

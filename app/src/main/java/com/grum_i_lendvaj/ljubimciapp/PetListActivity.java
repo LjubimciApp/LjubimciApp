@@ -30,6 +30,10 @@ public class PetListActivity extends ListActivity implements View.OnClickListene
 
         Button buttonAdd = (Button) findViewById(R.id.add);
         buttonAdd.setOnClickListener(this);
+
+        setListAdapter(new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2,
+                null,
+                new String[]{"_id", "name"}, new int[]{android.R.id.text1, android.R.id.text2}, 0));
     }
 
     @Override
@@ -48,21 +52,23 @@ public class PetListActivity extends ListActivity implements View.OnClickListene
                 vals.put("owner", "");
                 long id = helper.getWritableDatabase().insert("pets", null, vals);
 
-                ((CursorAdapter) getListAdapter()).changeCursor(
-                        helper.getWritableDatabase().query("pets", columns, null, null, null, null, null));
+                refreshCursor();
 
                 showDetails(id);
                 break;
         }
     }
 
+    private void refreshCursor() {
+        ((CursorAdapter) getListAdapter()).changeCursor(
+                helper.getWritableDatabase().query("pets", columns, null, null, null, null, null));
+    }
+
     @Override
     public void onResume() {
         super.onResume();
 
-        setListAdapter(new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2,
-                helper.getWritableDatabase().query("pets", new String[]{"_id, name"}, null, null, null, null, null),
-                new String[]{"_id", "name"}, new int[] {android.R.id.text1, android.R.id.text2}, 0));
+        refreshCursor();
     }
 
     @Override

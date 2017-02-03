@@ -27,18 +27,20 @@ public class ExpensesActivity extends ListActivity implements View.OnClickListen
 
         getListView().addHeaderView(getLayoutInflater().inflate(R.layout.expenses_header, null));
         helper = new PetDatabaseHelper(this);
+
+        setListAdapter(new SimpleCursorAdapter(
+                this,
+                R.layout.expenses_item,
+                null,
+                columns, ids,
+                0));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        setListAdapter(new SimpleCursorAdapter(
-                this,
-                R.layout.expenses_item,
-                helper.getWritableDatabase().query("expenses", columns, null, null, null, null, null),
-                columns, ids,
-                0));
+        refreshCursor();
     }
 
     @Override
@@ -76,11 +78,15 @@ public class ExpensesActivity extends ListActivity implements View.OnClickListen
                 vals.put("etc", "");
                 long id = helper.getWritableDatabase().insert("expenses", null, vals);
 
-                ((CursorAdapter) getListAdapter()).changeCursor(
-                        helper.getWritableDatabase().query("expenses", columns, null, null, null, null, null));
+                refreshCursor();
 
                 showDetails(id);
                 break;
         }
+    }
+
+    private void refreshCursor() {
+        ((CursorAdapter) getListAdapter()).changeCursor(
+                helper.getWritableDatabase().query("expenses", columns, null, null, null, null, null));
     }
 }
