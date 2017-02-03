@@ -25,7 +25,6 @@
         android:fontFamily="serif" />
 
     <TextView
-        android:text="Veterinar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/vet"
@@ -33,7 +32,8 @@
         android:textSize="15sp"
         android:textColor="@color/colorAccent"
         android:textStyle="normal|bold|italic"
-        android:fontFamily="serif" />
+        android:fontFamily="serif"
+        android:text="Veterinar" />
 
     <TextView
         android:text="Hrana"
@@ -54,5 +54,6 @@
         android:layout_weight="1"
         android:textSize="15sp"
         android:fontFamily="serif"
-        android:textStyle="normal|bold|italic" />
+        android:textStyle="normal|bold|italic"
+        android:textColor="@color/colorAccent" />
 </TableRow>
