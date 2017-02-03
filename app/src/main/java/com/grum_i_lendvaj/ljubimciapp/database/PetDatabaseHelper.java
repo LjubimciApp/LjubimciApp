@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class PetDatabaseHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 9;
+    private static final int DATABASE_VERSION = 11;
     private static final String DATABASE_NAME = "pets";
 
     private static final String PET_TABLE_NAME = "pets";
@@ -32,6 +32,7 @@ public class PetDatabaseHelper extends SQLiteOpenHelper {
                     + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "name TEXT, "
                     + "vet TEXT, "
+                    + "food TEXT, "
                     + "etc TEXT"
                     + ")";
     private static final String EXPENSE_TABLE_DROP =
@@ -41,7 +42,7 @@ public class PetDatabaseHelper extends SQLiteOpenHelper {
             EVENT_TABLE_CREATE =
             "CREATE TABLE " + EVENT_TABLE_NAME + " ("
                     + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + "time TEXT, "
+                    + "time INTEGER, "
                     + "description TEXT"
                     + ")";
     private static final String EVENT_TABLE_DROP =

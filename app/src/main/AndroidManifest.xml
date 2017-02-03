@@ -50,6 +50,8 @@
             android:name=".EventReceiver"
             android:enabled="true"
             android:exported="true" />
+
+        <activity android:name=".EventActivity"></activity>
     </application>
 
 </manifest>

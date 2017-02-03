@@ -25,8 +25,6 @@ public class PetDetailActivity extends AppCompatActivity implements View.OnClick
 
         helper = new PetDatabaseHelper(this);
 
-        Log.wtf("BITNO", "a" + getShownIndex());
-
         findViewById(R.id.submit).setOnClickListener(this);
         findViewById(R.id.delete).setOnClickListener(this);
     }
@@ -61,7 +59,7 @@ public class PetDetailActivity extends AppCompatActivity implements View.OnClick
     }
 
     public long getShownIndex() {
-        return getIntent().getLongExtra("index", 0);
+        return getIntent().getLongExtra("id", 0);
     }
 
     @Override

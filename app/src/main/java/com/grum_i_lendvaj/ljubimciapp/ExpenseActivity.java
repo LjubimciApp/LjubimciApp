@@ -59,7 +59,7 @@ public class ExpenseActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     public long getShownIndex() {
-        return getIntent().getLongExtra("index", 0);
+        return getIntent().getLongExtra("id", 0);
     }
 
     @Override

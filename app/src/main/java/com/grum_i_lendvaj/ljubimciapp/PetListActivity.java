@@ -77,10 +77,10 @@ public class PetListActivity extends ListActivity implements View.OnClickListene
         showDetails(id);
     }
 
-    private void showDetails(long index) {
+    private void showDetails(long id) {
 
         Intent intent = new Intent(this, PetDetailActivity.class);
-        intent.putExtra("index", index);
+        intent.putExtra("id", id);
 
         startActivity(intent);
     }

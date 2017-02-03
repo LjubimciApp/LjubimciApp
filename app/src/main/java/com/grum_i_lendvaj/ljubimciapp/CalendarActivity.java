@@ -19,7 +19,7 @@ import java.util.Calendar;
 
 public class CalendarActivity extends ListActivity implements View.OnClickListener {
 
-    private static final String[] columns = {"time", "description", "_id"};
+    private static final String[] columns = {"datetime(time, 'unixepoch', 'localtime')", "description", "_id"};
     private static final int[] ids = {android.R.id.text1, android.R.id.text2};
 
     private PetDatabaseHelper helper;
@@ -48,10 +48,12 @@ public class CalendarActivity extends ListActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.add:
                 ContentValues vals = new ContentValues();
-                Log.wtf("Current time", DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime()));
-                vals.put("time", DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime()));
+                vals.put("time", (int) (Calendar.getInstance().getTime().getTime() / 1000));
                 vals.put("description", "");
                 long id = helper.getWritableDatabase().insert("events", null, vals);
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(1000 * (Calendar.getInstance().getTime().getTime() / 1000));
+                Log.wtf("time", DateFormat.getDateTimeInstance().format(calendar.getTime()));
 
                 ((CursorAdapter) getListAdapter()).changeCursor(
                         helper.getWritableDatabase().query("events", columns, null, null, null, null, null));
@@ -68,6 +70,15 @@ public class CalendarActivity extends ListActivity implements View.OnClickListen
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        //TODO
+
+        showDetails(id);
+    }
+
+    private void showDetails(long id) {
+
+        Intent intent = new Intent(this, EventActivity.class);
+        intent.putExtra("id", id);
+
+        startActivity(intent);
     }
 }

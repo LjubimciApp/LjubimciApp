@@ -4,7 +4,6 @@ import android.app.ListActivity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
@@ -14,8 +13,8 @@ import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
 
 public class ExpensesActivity extends ListActivity implements View.OnClickListener {
 
-    private static final String[] columns = {"_id", "name", "vet", "etc"};
-    private static final int[] ids = {R.id._id, R.id.name, R.id.vet, R.id.etc};
+    private static final String[] columns = {"name", "vet", "food", "etc", "_id"};
+    private static final int[] ids = {R.id.name, R.id.vet, R.id.food, R.id.etc};
 
     PetDatabaseHelper helper;
 
@@ -52,13 +51,16 @@ public class ExpensesActivity extends ListActivity implements View.OnClickListen
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
+        if (position < l.getHeaderViewsCount())
+            return;
+
         showDetails(id);
     }
 
-    private void showDetails(long index) {
+    private void showDetails(long id) {
 
         Intent intent = new Intent(this, ExpenseActivity.class);
-        intent.putExtra("index", index);
+        intent.putExtra("id", id);
 
         startActivity(intent);
     }
@@ -70,6 +72,7 @@ public class ExpensesActivity extends ListActivity implements View.OnClickListen
                 ContentValues vals = new ContentValues();
                 vals.put("name", "");
                 vals.put("vet", "");
+                vals.put("food", "");
                 vals.put("etc", "");
                 long id = helper.getWritableDatabase().insert("expenses", null, vals);
 
@@ -77,8 +80,6 @@ public class ExpensesActivity extends ListActivity implements View.OnClickListen
                         helper.getWritableDatabase().query("expenses", columns, null, null, null, null, null));
 
                 showDetails(id);
-
-                Log.wtf("cursor", String.valueOf(((CursorAdapter) getListAdapter()).getCursor().getCount()));
                 break;
         }
     }

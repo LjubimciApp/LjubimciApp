@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/_id"
-        android:layout_weight="0" />
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textSize="14sp" />
 
     <TextView
+        android:id="@+id/vet"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/vet"
+        android:layout_weight="1"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/food"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textSize="14sp"  />
 
     <TextView
+        android:id="@+id/etc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/etc"
         android:layout_weight="1"
         android:textSize="14sp"  />
 </LinearLayout>
