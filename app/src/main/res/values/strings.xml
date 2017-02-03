@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LjubimciApp</string>
+    <string name="app_name">Moji ljubimci</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -13,10 +13,4 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_login">Sign in</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_signin">SigninActivity</string>
-    <string name="login_message">Logiraj se preko google accounta</string>
-    <string name="submit">Potvrdi</string>
-    <string name="title_activity_pet_add">PetAddActivity</string>
 </resources>
