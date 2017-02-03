@@ -192,7 +192,7 @@
             android:id="@+id/delete"
             style="@style/Widget.AppCompat.Button.Colored"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button"
-            android:background="@android:color/holo_red_dark"
+            android:background="@color/colorNegation"
             android:fontFamily="casual"
             android:textColor="@color/colorButtonText"
             android:textSize="14sp"
