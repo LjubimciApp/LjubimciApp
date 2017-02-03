@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
+        android:hint="Ime"
         android:textSize="14sp" />
 
     <EditText
@@ -23,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
+        android:hint="Veterinar"
         android:textSize="14sp" />
 
     <EditText
@@ -30,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
+        android:hint="Hrana"
         android:textSize="14sp" />
 
     <EditText
@@ -37,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
+        android:hint="Ostalo"
         android:textSize="14sp" />
 
     <Button
