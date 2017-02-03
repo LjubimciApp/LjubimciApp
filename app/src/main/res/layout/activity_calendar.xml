@@ -11,25 +11,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.grum_i_lendvaj.ljubimciapp.CalendarActivity">
 
-    <CalendarView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/calendarView"
-        android:layout_below="@+id/textView7"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="32dp" />
-
     <TextView
         android:text="Kalendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:id="@+id/textView7"
+        android:id="@+id/textView"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:fontFamily="serif"
         android:textColor="@color/colorAccent"
-        android:textStyle="normal|italic" />
+        android:textStyle="normal|italic"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Dodaj događaj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="66dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:background="@color/colorAccent"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button"
+        android:textColor="@color/colorButtonText"
+        android:textStyle="normal|bold"
+        android:fontFamily="casual" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@android:id/list"
+        android:layout_below="@+id/add"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -9,11 +9,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-import com.grum_i_lendvaj.ljubimciapp.database.ExpensesDatabaseHelper;
+import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
 
 public class DebugActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ExpensesDatabaseHelper helper;
+    PetDatabaseHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class DebugActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.button_update).setOnClickListener(this);
         findViewById(R.id.button_query).setOnClickListener(this);
 
-        helper = new ExpensesDatabaseHelper(this);
+        helper = new PetDatabaseHelper(this);
     }
 
     @Override

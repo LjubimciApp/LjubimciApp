@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import com.grum_i_lendvaj.ljubimciapp.database.ExpensesDatabaseHelper;
+import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
 
 public class ExpenseActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -16,14 +16,14 @@ public class ExpenseActivity extends AppCompatActivity implements View.OnClickLi
     private static final int[] ids = {R.id.name, R.id.vet, R.id.etc};
     private static final String query = "_id = ?";
 
-    ExpensesDatabaseHelper helper;
+    PetDatabaseHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expense);
 
-        helper = new ExpensesDatabaseHelper(this);
+        helper = new PetDatabaseHelper(this);
 
         findViewById(R.id.submit).setOnClickListener(this);
         findViewById(R.id.delete).setOnClickListener(this);

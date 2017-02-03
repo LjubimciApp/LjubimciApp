@@ -10,14 +10,14 @@ import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-import com.grum_i_lendvaj.ljubimciapp.database.ExpensesDatabaseHelper;
+import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
 
 public class ExpensesActivity extends ListActivity implements View.OnClickListener {
 
     private static final String[] columns = {"_id", "name", "vet", "etc"};
     private static final int[] ids = {R.id._id, R.id.name, R.id.vet, R.id.etc};
 
-    ExpensesDatabaseHelper helper;
+    PetDatabaseHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class ExpensesActivity extends ListActivity implements View.OnClickListen
         findViewById(R.id.add).setOnClickListener(this);
 
         getListView().addHeaderView(getLayoutInflater().inflate(R.layout.expenses_header, null));
-        helper = new ExpensesDatabaseHelper(this);
+        helper = new PetDatabaseHelper(this);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class ExpensesActivity extends ListActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.add:
                 ContentValues vals = new ContentValues();
-                vals.put("name", "blank");
+                vals.put("name", "");
                 vals.put("vet", "");
                 vals.put("etc", "");
                 helper.getWritableDatabase().insert("expenses", null, vals);
