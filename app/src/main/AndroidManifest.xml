@@ -48,6 +48,8 @@
             android:exported="false" />
 
         <activity android:name=".EventActivity" />
+        <activity android:name=".SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
