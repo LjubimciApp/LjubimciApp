@@ -17,7 +17,7 @@ public class EventReceiver extends BroadcastReceiver {
         Notification notification = new NotificationCompat.Builder(context)
                 .setSmallIcon(android.R.drawable.sym_def_app_icon)
                 .setContentTitle("Podsjetnik")
-                .setContentText("Jej!")
+                .setContentText("@id/description")
                 .setVibrate(new long[]{0, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10})
                 .build();
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
