@@ -12,7 +12,7 @@
     tools:context="com.grum_i_lendvaj.ljubimciapp.CalendarActivity">
 
     <TextView
-        android:text="Kalendar"
+        android:text="Podsjetnik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"

@@ -50,7 +50,7 @@
             android:layout_height="60dp"
             android:backgroundTint="@color/colorPrimary"
             android:fontFamily="casual"
-            android:text="Kalendar"
+            android:text="Podsjetnik"
             android:textColor="@color/colorButtonText"
             android:textSize="24sp"
             android:textStyle="normal|bold|italic" />
