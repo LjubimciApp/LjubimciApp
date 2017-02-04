@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class PetDatabaseHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 11;
+    private static final int DATABASE_VERSION = 12;
     private static final String DATABASE_NAME = "pets";
 
     private static final String PET_TABLE_NAME = "pets";
