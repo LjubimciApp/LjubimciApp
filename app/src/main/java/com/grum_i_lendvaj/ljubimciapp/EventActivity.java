@@ -90,7 +90,9 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
                 helper.getWritableDatabase().update("events", vals, query, new String[]{String.valueOf(getShownIndex())});
 
                 AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                Intent intent = new Intent(this, EventReceiver.class).putExtra("id", (int) getShownIndex());
+                Intent intent = new Intent(this, EventReceiver.class)
+                        .putExtra("id", (int) getShownIndex())
+                        .putExtra("description", getStringField(R.id.description));
 
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                         PendingIntent.getBroadcast(this, 0, intent, 0));
