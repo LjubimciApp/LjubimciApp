@@ -13,8 +13,8 @@ import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
 
 public class PetDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String[] columns = {"name", "age", "weight", "food", "medicine", "health", "notes", "vet", "owner"};
-    private static final int[] ids = {R.id.name, R.id.age, R.id.weight, R.id.food, R.id.medicine, R.id.health, R.id.notes, R.id.vet, R.id.owner};
+    private static final String[] columns = {"name", "specie", "age", "weight", "food", "medicine", "health", "notes", "vet", "owner"};
+    private static final int[] ids = {R.id.name, R.id.specie, R.id.age, R.id.weight, R.id.food, R.id.medicine, R.id.health, R.id.notes, R.id.vet, R.id.owner};
     private static final String query = "_id = ?";
 
     PetDatabaseHelper helper;
@@ -71,6 +71,7 @@ public class PetDetailActivity extends AppCompatActivity implements View.OnClick
 
                 try {
                     vals.put("name", getStringField(R.id.name));
+                    vals.put("specie", getStringField(R.id.specie));
                     vals.put("age", getIntField(R.id.age));
                     vals.put("weight", getIntField(R.id.weight));
                     vals.put("food", getStringField(R.id.food));

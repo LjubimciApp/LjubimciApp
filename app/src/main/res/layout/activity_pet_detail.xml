@@ -29,6 +29,24 @@
             android:id="@+id/name" />
 
         <TextView
+            android:text="Vrsta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView10"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/colorAccent"
+            android:textStyle="normal|bold|italic"
+            android:textSize="22sp"
+            android:fontFamily="serif" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/specie" />
+
+        <TextView
             android:text="Dob"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
