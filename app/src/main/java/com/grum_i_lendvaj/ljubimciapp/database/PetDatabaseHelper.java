@@ -14,6 +14,7 @@ public class PetDatabaseHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + PET_TABLE_NAME + " ("
                     + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "name TEXT NOT NULL, "
+                    + "specie TEXT,"
                     + "age INTEGER, "
                     + "weight INTEGER, "
                     + "food TEXT, "
