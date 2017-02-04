@@ -69,7 +69,7 @@ public class ExpenseActivity extends AppCompatActivity implements View.OnClickLi
                 ContentValues vals = new ContentValues();
                 vals.put("name", getStringField(R.id.name));
                 vals.put("vet", getStringField(R.id.vet));
-                vals.put("hrana", getStringField(R.id.food));
+                vals.put("food", getStringField(R.id.food));
                 vals.put("etc", getStringField(R.id.etc));
 
                 helper.getWritableDatabase().update("expenses", vals, query, new String[]{String.valueOf(getShownIndex())});
