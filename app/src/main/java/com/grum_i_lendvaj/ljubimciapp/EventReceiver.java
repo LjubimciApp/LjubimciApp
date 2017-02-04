@@ -17,7 +17,7 @@ public class EventReceiver extends BroadcastReceiver {
         Notification notification = new NotificationCompat.Builder(context)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Podsjetnik")
-                .setContentText(intent.getCharSequenceExtra("description"))
+                .setContentText(intent.getStringExtra("description"))
                 .setVibrate(new long[]{0, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10,
                         20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10,
                         20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10,
