@@ -12,8 +12,8 @@ import com.grum_i_lendvaj.ljubimciapp.database.PetDatabaseHelper;
 
 public class ExpenseActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String[] columns = {"name", "vet", "etc"};
-    private static final int[] ids = {R.id.name, R.id.vet, R.id.etc};
+    private static final String[] columns = {"name", "vet", "food", "etc"};
+    private static final int[] ids = {R.id.name, R.id.vet, R.id.food, R.id.etc};
     private static final String query = "_id = ?";
 
     PetDatabaseHelper helper;
@@ -67,9 +67,10 @@ public class ExpenseActivity extends AppCompatActivity implements View.OnClickLi
         switch (v.getId()) {
             case R.id.submit:
                 ContentValues vals = new ContentValues();
-                vals.put("name",        getStringField(R.id.name));
-                vals.put("vet",         getStringField(R.id.vet));
-                vals.put("etc",       getStringField(R.id.etc));
+                vals.put("name", getStringField(R.id.name));
+                vals.put("vet", getStringField(R.id.vet));
+                vals.put("hrana", getStringField(R.id.food));
+                vals.put("etc", getStringField(R.id.etc));
 
                 helper.getWritableDatabase().update("expenses", vals, query, new String[]{String.valueOf(getShownIndex())});
                 finish();
