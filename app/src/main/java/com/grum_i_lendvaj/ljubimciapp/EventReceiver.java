@@ -15,10 +15,15 @@ public class EventReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         Notification notification = new NotificationCompat.Builder(context)
-                .setSmallIcon(android.R.drawable.sym_def_app_icon)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Podsjetnik")
-                .setContentText("Ovo treba prikazat kaj sam napiso!")
-                .setVibrate(new long[]{0, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10})
+                .setContentText(intent.getCharSequenceExtra("description"))
+                .setVibrate(new long[]{0, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10,
+                        20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10,
+                        20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10,
+                        20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10,
+                        20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10,
+                        20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10})
                 .build();
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
 
