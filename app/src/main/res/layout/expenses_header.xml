@@ -29,7 +29,7 @@
         android:id="@+id/vet"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1.3"
+        android:layout_weight="1"
         android:fontFamily="serif"
         android:text="Veterinar"
         android:textColor="@color/colorAccent"
