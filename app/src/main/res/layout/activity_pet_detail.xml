@@ -47,7 +47,7 @@
             android:id="@+id/specie" />
 
         <TextView
-            android:text="Dob"
+            android:text="Dob (u godinama)"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView2"
