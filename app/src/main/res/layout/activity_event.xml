@@ -29,8 +29,8 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="Ime"
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/submit"

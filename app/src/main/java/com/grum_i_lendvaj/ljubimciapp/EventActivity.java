@@ -53,10 +53,13 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
 
         DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
         TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+        EditText description = (EditText) findViewById(R.id.description);
 
         datePicker.updateDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         timePicker.setCurrentHour(calendar.get(Calendar.HOUR_OF_DAY));
         timePicker.setCurrentMinute(calendar.get(Calendar.MINUTE));
+
+        description.setText(cursor.getString(1));
     }
 
     @Override
@@ -73,7 +76,7 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
     @SuppressWarnings("deprecation")
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.submit:
+            case R.id.submit: {
                 ContentValues vals = new ContentValues();
 
                 Calendar calendar = Calendar.getInstance();
@@ -95,13 +98,20 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
                         .putExtra("description", getStringField(R.id.description));
 
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                        PendingIntent.getBroadcast(this, 0, intent, 0));
+                        PendingIntent.getBroadcast(this, (int) getShownIndex(), intent, PendingIntent.FLAG_UPDATE_CURRENT));
                 finish();
                 break;
-            case R.id.delete:
+            }
+            case R.id.delete: {
                 helper.getWritableDatabase().delete("events", query, new String[]{String.valueOf(getShownIndex())});
+
+                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                Intent intent = new Intent(this, EventReceiver.class);
+
+                alarmManager.cancel(PendingIntent.getBroadcast(this, (int) getShownIndex(), intent, 0));
                 finish();
                 break;
+            }
         }
     }
 
