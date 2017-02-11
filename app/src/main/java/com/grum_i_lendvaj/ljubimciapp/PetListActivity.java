@@ -31,9 +31,9 @@ public class PetListActivity extends ListActivity implements View.OnClickListene
         Button buttonAdd = (Button) findViewById(R.id.add);
         buttonAdd.setOnClickListener(this);
 
-        setListAdapter(new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2,
+        setListAdapter(new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1,
                 null,
-                new String[]{"_id", "name"}, new int[]{android.R.id.text1, android.R.id.text2}, 0));
+                new String[]{"name"}, new int[]{android.R.id.text1}, 0));
     }
 
     @Override
